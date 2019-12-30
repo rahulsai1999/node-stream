@@ -66,7 +66,7 @@ const downloadSong = (req, res) => {
   res.set("accept-ranges", "bytes");
 
   let bucket = new mongo.GridFSBucket(conn.db, {
-    bucketName: "tracks"
+    bucketName: "fs"
   });
 
   let downloadStream = bucket.openDownloadStream(trackID);
