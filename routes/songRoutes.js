@@ -1,7 +1,5 @@
 import { Router } from "express";
-import { downloadSong } from "../controllers/songController";
-import { uploadSong } from "../controllers/songCont";
-
+import { downloadSong, uploadSong } from "../controllers/songController";
 const router = Router();
 
 router.route("/songs").post(uploadSong);

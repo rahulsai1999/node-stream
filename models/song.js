@@ -1,11 +1,7 @@
-import mongoose from "mongoose";
-import shortid from "shortid";
+import mongoose, { Schema } from "mongoose";
 
 const songSchema = mongoose.Schema({
-  _id: {
-    type: String,
-    default: shortid.generate
-  },
+  fileId: Schema.Types.ObjectId,
   title: String,
   date: Date,
   artist: String,
