@@ -1,7 +1,7 @@
 import { createClient } from "redis";
-const REDIS_PORT = 6379;
+const REDIS_HOST = process.env.REDIS_HOST;
 
-const client = createClient(REDIS_PORT);
+const client = createClient(6379, REDIS_HOST);
 
 const cacheAllSongs = (req, res, next) => {
   let api = req.path;

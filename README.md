@@ -9,8 +9,11 @@ git clone https://github.com/rahulsai1999/node-stream
 docker build -t noneuser2183/songstreamer .
 ```
 
-- Create a .env file with DB_URL=mongodb_url and other env variables required
-
+- Create a .env file 
+```
+DB_URL=mongodb_url 
+REDIS_HOST=redis
+```
 - Deployment phase
 
 ```console
