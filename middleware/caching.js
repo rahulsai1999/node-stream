@@ -1,11 +1,9 @@
 import { createClient } from "redis";
 const REDIS_HOST = process.env.REDIS_HOST;
-
 const client = createClient(6379, REDIS_HOST);
 
-const cacheAllSongs = (req, res, next) => {
-  let api = req.path;
-  client.get(api, (err, data) => {
+const cacheReturn = (req, res, next) => {
+  client.get(req.path, (err, data) => {
     if (data != null) {
       res.json({ result: JSON.parse(data) });
     } else {
@@ -14,4 +12,8 @@ const cacheAllSongs = (req, res, next) => {
   });
 };
 
-export { cacheAllSongs };
+const cacheEnable = (req, data) => {
+  client.setex(req.path, 60, JSON.stringify(data));
+};
+
+export { cacheReturn, cacheEnable };

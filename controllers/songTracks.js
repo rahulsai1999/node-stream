@@ -1,13 +1,10 @@
 import Song from "../models/song";
-import { createClient } from "redis";
-const REDIS_HOST = process.env.REDIS_HOST;
-
-const client = createClient(6379, REDIS_HOST);
+import { cacheEnable } from "../middleware/caching";
 
 const getSongs = (req, res) => {
   Song.find({}, (err, result) => {
     if (err) res.json({ result: err });
-    client.setex(req.path, 60, JSON.stringify(result));
+    cacheEnable(req, result);
     res.json({ result: result });
   });
 };
