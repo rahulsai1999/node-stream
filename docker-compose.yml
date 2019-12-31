@@ -4,6 +4,8 @@ services:
   streamer:
     image: "noneuser2183/songstreamer"
     env_file: .env
+    ports: 
+      - "3000:3000"
 
   redis:
     image: "bitnami/redis:5.0"
