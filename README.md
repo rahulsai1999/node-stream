@@ -4,7 +4,7 @@
 
 - Clone the repository and build the image
 
-```bash
+```console
 git clone https://github.com/rahulsai1999/node-stream
 docker build -t noneuser2183/songstreamer .
 ```
@@ -13,7 +13,7 @@ docker build -t noneuser2183/songstreamer .
 
 - Deployment phase
 
-```bash
+```console
 docker-compose up --build
 ```
 
